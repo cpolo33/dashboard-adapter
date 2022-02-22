@@ -1,6 +1,7 @@
 {
   "name": "@sonarwatch/dashboard-adapter-base",
   "version": "0.0.4",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc -w"

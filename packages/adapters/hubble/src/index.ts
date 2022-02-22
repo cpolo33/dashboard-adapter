@@ -1,4 +1,4 @@
-// import { AdapterName } from "@sonarwatch/adapter-base";
+// import { AdapterName } from "@sonarwatch/dashboard-adapter-base";
 
-export const HubbleAdapterName = 'HubbleProtocol';
+export const HubbleAdapterName = 'Hubble';
 // export const HubbleAdapterName = 'Hubble' as AdapterName;

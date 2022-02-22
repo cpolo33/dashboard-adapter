@@ -1,11 +1,15 @@
 {
   "name": "@sonarwatch/dashboard-adapter-hubble",
   "version": "0.0.4",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc -w"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@sonarwatch/dashboard-adapter-base": "^0.0.4"
   }
 }

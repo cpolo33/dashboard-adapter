@@ -15,9 +15,4 @@ export abstract class BaseAdapter {
   fetchMultiple(connection: Connection, addresses : [PublicKey]) : Promise<string>[] {
     return addresses.map((address) => this.fetch(connection, address));
   }
-
-  display(): void {
-    // eslint-disable-next-line no-console
-    console.log(this.name);
-  }
 }

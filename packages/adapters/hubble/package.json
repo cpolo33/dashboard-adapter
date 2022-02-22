@@ -1,6 +1,6 @@
 {
   "name": "@sonarwatch/dashboard-adapter-hubble",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
   "scripts": {
@@ -13,6 +13,6 @@
   },
   "dependencies": {
     "@hubbleprotocol/hubble-sdk": "^1.0.20",
-    "@sonarwatch/dashboard-adapter-base": "^0.0.8"
+    "@sonarwatch/dashboard-adapter-base": "^0.0.9"
   }
 }

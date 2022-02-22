@@ -12,6 +12,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@hubbleprotocol/hubble-sdk": "^1.0.20",
     "@sonarwatch/dashboard-adapter-base": "^0.0.8"
   }
 }

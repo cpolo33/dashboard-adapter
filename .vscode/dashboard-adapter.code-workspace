@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "root",
+			"path": "../"
+		},
+		{
+			"name": "packages/core/base",
+			"path": "../packages/core/base"
+		},
+		{
+			"name": "packages/adapters/hubble",
+			"path": "../packages/adapters/hubble"
+		},
+	],
+	"settings": {
+		"files.exclude": {
+			"packages/": true
+		},
+	}
+}

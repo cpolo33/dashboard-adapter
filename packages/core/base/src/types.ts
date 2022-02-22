@@ -1,1 +1,1 @@
-export type AdapterName = string & { __brand__: 'adapterName' };
+export type AdapterName = string & { __brand__: 'AdapterName' };

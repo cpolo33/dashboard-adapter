@@ -5,7 +5,8 @@
   "types": "dist/index.d.js",
   "scripts": {
     "build": "tsc",
-    "build:watch": "tsc -w"
+    "build:watch": "tsc -w",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "publishConfig": {
     "access": "public"

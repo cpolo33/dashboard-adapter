@@ -1,10 +1,12 @@
-import { AdapterName, AdapterId } from "@sonarwatch/dashboard-adapter-base";
+import { AdapterName, AdapterId, BaseAdapter } from '@sonarwatch/dashboard-adapter-base';
 
-const HubbleAdapterId = 'hubble' as AdapterId
-const HubbleAdapterName = 'Hubble Proctol' as AdapterName
+export const HubbleAdapterId = 'hubble' as AdapterId;
+export const HubbleAdapterName = 'Hubble Proctol' as AdapterName;
 
 export class HubbleAdapter extends BaseAdapter {
   id = HubbleAdapterId;
+
   name = HubbleAdapterName;
-  url = 'https://clover.finance';
+
+  url = 'https://hubbleprotocol.io/';
 }

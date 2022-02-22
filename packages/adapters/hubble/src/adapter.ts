@@ -9,4 +9,9 @@ export class HubbleAdapter extends BaseAdapter {
   name = HubbleAdapterName;
 
   url = 'https://hubbleprotocol.io/';
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async fetch(connection, address): Promise<string> {
+    return this.url;
+  }
 }

@@ -1,6 +1,5 @@
 {
   "name": "@sonarwatch/dashboard-adapter-base",
-  "private": "false",
   "version": "0.0.3",
   "scripts": {
     "build": "tsc",

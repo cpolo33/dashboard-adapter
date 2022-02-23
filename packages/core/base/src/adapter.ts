@@ -1,7 +1,7 @@
 import { Connection, PublicKey } from '@solana/web3.js';
 
-export type AdapterName = string & { __brand__: 'AdapterName' };
-export type AdapterId = string & { __brand__: 'AdapterId' };
+export type AdapterName = string & { __brand__: 'adapterName' };
+export type AdapterId = string & { __brand__: 'adapterId' };
 
 export abstract class BaseAdapter {
   abstract id: AdapterId;

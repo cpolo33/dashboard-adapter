@@ -18,5 +18,13 @@
     "@typescript-eslint"
   ],
   "rules": {
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/__tests__/**"],
+      "rules": {
+        "no-console":"off"
+      }
+    }
+  ]
 }

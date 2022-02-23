@@ -10,7 +10,7 @@ export class HubbleAdapter extends BaseAdapter {
 
   name = HubbleAdapterName;
 
-  url = 'https://hubbleprotocol.io/';
+  url = 'https://hubbleprotocol.io';
 
   // eslint-disable-next-line class-methods-use-this
   async fetch(connection: Connection, address: PublicKey): Promise<string> {

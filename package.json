@@ -8,8 +8,7 @@
     "lint": "lerna run lint",
     "test": "lerna run test",
     "diff": "lerna diff",
-    "lerna:publish": "lerna publish",
-    "prepublishOnly": "lerna run build"
+    "lerna:publish": "lerna publish"
   },
   "devDependencies": {
     "@types/node": "^17.0.19",

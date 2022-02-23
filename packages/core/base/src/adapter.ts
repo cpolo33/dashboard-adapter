@@ -10,9 +10,9 @@ export abstract class BaseAdapter {
 
   abstract url: string;
 
-  abstract fetch(connection: Connection, address : PublicKey) : Promise<string>;
+  abstract fetch(connection: Connection, address : PublicKey) : Promise<any>;
 
-  fetchMultiple(connection: Connection, addresses : [PublicKey]) : Promise<string>[] {
+  fetchMultiple(connection: Connection, addresses : [PublicKey]) : Promise<any>[] {
     return addresses.map((address) => this.fetch(connection, address));
   }
 }

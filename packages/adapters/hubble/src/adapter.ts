@@ -13,10 +13,14 @@ export class HubbleAdapter extends BaseAdapter {
   url = 'https://hubbleprotocol.io';
 
   // eslint-disable-next-line class-methods-use-this
-  async fetch(connection: Connection, address: PublicKey): Promise<string> {
+  async fetch(connection: Connection, address: PublicKey): Promise<any> {
     const cluster = 'mainnet-beta';
     const hubble = new Hubble(cluster, connection);
+
     const stakedHbb = await hubble.getUserStakedHbb(address);
-    return stakedHbb.toString();
+    const loans = await hubble.getUserLoans(address);
+    const usdh = await hubble.getUserUsdhInStabilityPool(address);
+
+    return [stakedHbb, ...loans, usdh];
   }
 }

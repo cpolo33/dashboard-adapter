@@ -8,7 +8,7 @@ export type DashboardAsset = {
   type: string,
   name: string,
   value: number,
-  elements: AssetElement[]
+  elements?: AssetElement[]
 };
 
 export type AssetElement = {

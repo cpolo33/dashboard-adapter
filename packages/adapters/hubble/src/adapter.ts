@@ -1,26 +1,44 @@
-import { Hubble } from '@hubbleprotocol/hubble-sdk';
-import { Connection, PublicKey } from '@solana/web3.js';
-import { AdapterName, AdapterId, BaseAdapter } from '@sonarwatch/dashboard-adapter-base';
+import { DashboardAsset } from '@sonarwatch/dashboard-adapter-base';
 
-export const HubbleAdapterId = 'hubble' as AdapterId;
-export const HubbleAdapterName = 'Hubble Proctol' as AdapterName;
+export const HubbleAdapterId = 'hubble';
+export const HubbleAdapterName = 'Hubble Proctol';
 
-export class HubbleAdapter extends BaseAdapter {
-  id = HubbleAdapterId;
+export const hubblePlatform = {
+  id: 'hubble',
+  name: 'Hubble Protocol',
+  description: 'Mint USDH stablecoin at 0% interest against multiple types of collateral',
+  logoURI: 'https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/HBB111SCo9jkCejsZfz8Ec8nH7T6THF8KEKSnvwT6XK6/logo.svg',
+  discord: 'https://discord.gg/d44A8WvK',
+  twitter: 'https://twitter.com/hubbleprotocol',
+  website: 'https://hubbleprotocol.io/',
+} as Platform;
 
-  name = HubbleAdapterName;
+export type Platform = {
+  id: string,
+  name: string,
+  description: string,
+  logoURI: string,
+  discord?: string,
+  twitter?: string,
+  website?: string,
+  medium?: string,
+};
 
-  url = 'https://hubbleprotocol.io';
+export type Adapter<DataType> = {
+  platform: Platform,
+  fetchData(): DataType;
+  fetchDashboard(data: DataType): DashboardAsset[];
+};
 
-  // eslint-disable-next-line class-methods-use-this
-  async fetch(connection: Connection, address: PublicKey): Promise<any> {
-    const cluster = 'mainnet-beta';
-    const hubble = new Hubble(cluster, connection);
-
-    const stakedHbb = await hubble.getUserStakedHbb(address);
-    const loans = await hubble.getUserLoans(address);
-    const usdh = await hubble.getUserUsdhInStabilityPool(address);
-
-    return [stakedHbb, ...loans, usdh];
-  }
-}
+export const HubbleAdapter: Adapter<string> = {
+  platform: hubblePlatform,
+  fetchData() {
+    return 'ici';
+  },
+  fetchDashboard(data:string) {
+    const a = {
+      type: data,
+    } as DashboardAsset;
+    return [a];
+  },
+};

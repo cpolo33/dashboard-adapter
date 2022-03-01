@@ -1,6 +1,6 @@
 {
   "name": "@sonarwatch/dashboard-adapter-hubble",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
@@ -18,7 +18,7 @@
   "dependencies": {
     "@hubbleprotocol/hubble-sdk": "^1.0.23",
     "@solana/web3.js": "^1.35.1",
-    "@sonarwatch/dashboard-adapter-base": "^0.0.17",
+    "@sonarwatch/dashboard-adapter-base": "^0.0.18",
     "axios": "^0.26.0"
   }
 }

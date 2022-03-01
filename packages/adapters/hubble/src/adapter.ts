@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 import { Hubble } from '@hubbleprotocol/hubble-sdk';
 import { Connection } from '@solana/web3.js';
-import { DashboardAsset, Network, AssetElementToken } from '@sonarwatch/dashboard-adapter-base';
+import { DashboardAsset, AssetElementToken } from '@sonarwatch/dashboard-adapter-base';
 import axios from 'axios';
 
 export const HubbleAdapterId = 'hubble';
@@ -62,8 +62,6 @@ export class HubbleAdapter extends AdatperClass<HubbleData, HubbleConfig> {
 
   platform:Platform = HubblePlatform;
 
-  network:Network = Network.solana;
-
   async fetchData(config: HubbleConfig) {
     const connection = new Connection(config.rpcEndpoint);
     const hubble = new Hubble('mainnet-beta', connection);
@@ -96,17 +94,16 @@ export class HubbleAdapter extends AdatperClass<HubbleData, HubbleConfig> {
       const stakedHbbValue = hbbPrice ? stakedHbbAmount.times(hbbPrice).toNumber() : undefined;
       const stakedHbbAsset:DashboardAsset = {
         owner: address,
-        network: Network.solana,
-        platform: this.platform.id,
+        networkId: 'solana',
+        platformId: this.platform.id,
         type: 'type',
-        name: 'name',
         value: stakedHbbValue,
         elements: [
           {
             type: 'token',
             value: stakedHbbValue,
             amount: stakedHbbAmount.toNumber(),
-            mint: 'dasd',
+            mint: 'HBB111SCo9jkCejsZfz8Ec8nH7T6THF8KEKSnvwT6XK6',
           } as AssetElementToken,
         ],
       };
@@ -114,11 +111,27 @@ export class HubbleAdapter extends AdatperClass<HubbleData, HubbleConfig> {
     // eslint-disable-next-line no-empty
     } catch (error) {}
 
-    const loans = await this.data.hubble.getUserLoans(address);
-    console.log('~ loans', loans);
-    const usdh = await this.data.hubble.getUserUsdhInStabilityPool(address);
-    console.log('~ usdh', usdh);
-
+    try {
+      const usdhAmount = await this.data.hubble.getUserUsdhInStabilityPool(address);
+      const usdhValue = usdhPrice ? usdhAmount.times(usdhPrice).toNumber() : undefined;
+      const stabilityAsset:DashboardAsset = {
+        owner: address,
+        networkId: 'solana',
+        platformId: this.platform.id,
+        type: 'type',
+        value: usdhValue,
+        elements: [
+          {
+            type: 'token',
+            value: usdhValue,
+            amount: usdhAmount.toNumber(),
+            mint: 'USDH1SM1ojwWUga67PGrgFWUHibbjqMvuMaDkRJTgkX',
+          } as AssetElementToken,
+        ],
+      };
+      assets.push(stabilityAsset);
+      // eslint-disable-next-line no-empty
+    } catch (error) {}
     return assets;
   }
 }

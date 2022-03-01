@@ -1,12 +1,11 @@
 import { Connection, PublicKey } from '@solana/web3.js';
-import { Network } from './types';
 
 export type DashboardAsset = {
-  network: Network,
-  platform: string,
+  networkId: string,
+  platformId: string,
   owner: string,
   type: string,
-  name: string,
+  name?: string,
   value?: number,
   elements?: AssetElement[]
 };

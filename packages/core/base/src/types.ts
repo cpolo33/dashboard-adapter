@@ -1,5 +1,10 @@
-/* eslint-disable import/prefer-default-export */
-export enum Network {
-  solana = 'solana',
-  ethereum = 'ethereum',
-}
+export type Network = {
+  id: string,
+  name: string,
+  description: string,
+  logoURI: string,
+  discord?: string,
+  twitter?: string,
+  website?: string,
+  medium?: string,
+};

@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 import { Hubble } from '@hubbleprotocol/hubble-sdk';
 import { Connection } from '@solana/web3.js';
-import { DashboardAsset, Network } from '@sonarwatch/dashboard-adapter-base';
+import { DashboardAsset, Network, AssetElementToken } from '@sonarwatch/dashboard-adapter-base';
 import axios from 'axios';
 
 export const HubbleAdapterId = 'hubble';
@@ -62,6 +62,8 @@ export class HubbleAdapter extends AdatperClass<HubbleData, HubbleConfig> {
 
   platform:Platform = HubblePlatform;
 
+  network:Network = Network.solana;
+
   async fetchData(config: HubbleConfig) {
     const connection = new Connection(config.rpcEndpoint);
     const hubble = new Hubble('mainnet-beta', connection);
@@ -86,24 +88,37 @@ export class HubbleAdapter extends AdatperClass<HubbleData, HubbleConfig> {
     const assets:DashboardAsset[] = [];
     if (!this.data.hubble) return assets;
 
-    const stakedHbb = await this.data.hubble.getUserStakedHbb(address);
-    const loans = await this.data.hubble.getUserLoans(address);
-    const usdh = await this.data.hubble.getUserUsdhInStabilityPool(address);
-    console.log('~ stakedHbb', stakedHbb);
-    console.log('~ loans', loans);
-    console.log('~ usdh', usdh);
+    const hbbPrice = this.data.prices.get('hubble');
+    const usdhPrice = this.data.prices.get('usdh');
 
-    if (stakedHbb) {
-      const stakedHbbAsset: DashboardAsset = {
+    try {
+      const stakedHbbAmount = await this.data.hubble.getUserStakedHbb(address);
+      const stakedHbbValue = hbbPrice ? stakedHbbAmount.times(hbbPrice).toNumber() : undefined;
+      const stakedHbbAsset:DashboardAsset = {
         owner: address,
         network: Network.solana,
-        platform: 'hubble',
+        platform: this.platform.id,
         type: 'type',
         name: 'name',
-        value: 1,
+        value: stakedHbbValue,
+        elements: [
+          {
+            type: 'token',
+            value: stakedHbbValue,
+            amount: stakedHbbAmount.toNumber(),
+            mint: 'dasd',
+          } as AssetElementToken,
+        ],
       };
       assets.push(stakedHbbAsset);
-    }
+    // eslint-disable-next-line no-empty
+    } catch (error) {}
+
+    const loans = await this.data.hubble.getUserLoans(address);
+    console.log('~ loans', loans);
+    const usdh = await this.data.hubble.getUserUsdhInStabilityPool(address);
+    console.log('~ usdh', usdh);
+
     return assets;
   }
 }

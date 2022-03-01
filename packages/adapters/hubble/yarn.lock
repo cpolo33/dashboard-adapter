@@ -42,10 +42,10 @@
   resolved "https://registry.yarnpkg.com/@hubbleprotocol/hubble-idl/-/hubble-idl-1.0.18.tgz#6ea746b0f8727f64215c4f0525129fc80784a196"
   integrity sha512-kMMwyXh8Z/LQsAsAifCdQj+qNzENdrESYIviDGBQm2mER1ATPB9fB7YOe3WhfE00PIB9pnyLq1zBK1V+qYdB1g==
 
-"@hubbleprotocol/hubble-sdk@^1.0.20":
-  version "1.0.20"
-  resolved "https://registry.yarnpkg.com/@hubbleprotocol/hubble-sdk/-/hubble-sdk-1.0.20.tgz#bc9a0d787f20d3876e83fae2b4682cff6a78e0a2"
-  integrity sha512-ZjZZYknzgVmonPzFsmYktyetn2mCBAEJbefRbAcv6Dg29KI+DJo0E9w7TDWl04Pphg94SAHR4dSpZrYPRe5/TA==
+"@hubbleprotocol/hubble-sdk@^1.0.23":
+  version "1.0.23"
+  resolved "https://registry.yarnpkg.com/@hubbleprotocol/hubble-sdk/-/hubble-sdk-1.0.23.tgz#0e1041c3317324cc4d33f9e579d9e2c78471a37e"
+  integrity sha512-nfFZ4Q1w19d8kMG3ejfUOiaksEjROm1erO5NLTCFwVpA1cO+PrIz5kaG7ndZjRQooHDKrF4eGgTVL+tAAo35oA==
   dependencies:
     "@hubbleprotocol/hubble-config" "^1.0.18"
     "@hubbleprotocol/hubble-idl" "^1.0.18"

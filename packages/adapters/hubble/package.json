@@ -16,7 +16,7 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "@hubbleprotocol/hubble-sdk": "^1.0.20",
+    "@hubbleprotocol/hubble-sdk": "^1.0.23",
     "@solana/web3.js": "^1.35.1",
     "@sonarwatch/dashboard-adapter-base": "^0.0.17",
     "axios": "^0.26.0"

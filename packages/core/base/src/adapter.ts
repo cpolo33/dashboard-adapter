@@ -7,14 +7,19 @@ export type DashboardAsset = {
   owner: string,
   type: string,
   name: string,
-  value: number,
+  value?: number,
   elements?: AssetElement[]
 };
 
 export type AssetElement = {
   type: string,
-  value: number
+  value?: number
 };
+
+export interface AssetElementToken extends AssetElement {
+  amount: number
+  mint: string
+}
 
 export abstract class BaseAdapter {
   abstract readonly id: string;

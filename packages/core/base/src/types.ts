@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-export declare enum Network {
+export enum Network {
   solana = 'solana',
   ethereum = 'ethereum',
 }

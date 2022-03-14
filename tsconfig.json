@@ -4,5 +4,11 @@
     "declaration": true,
     "sourceMap": true,
     "esModuleInterop": true
+  },
+  "typedocOptions": {
+      "entryPoints": ".",
+      "entryPointStrategy": "packages",
+      "out": "docs",
+      "readme": "README.md"
   }
 }
